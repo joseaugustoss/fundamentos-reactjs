@@ -27,8 +27,16 @@ export function Post({author, publishedAt, content}){
     setNewCommentText('');
   }
   // levar para o componente filho função que pode acessar o pai
-  function deleteComment(comment) {
-    console.log(`Deletar comentário: ${comment}`);
+  function deleteComment(commentToDelete) {
+    // atualizando a lista de commentario para outro valor.
+    // imutabilidades -> as variaveis não sofre mutação
+    // nos criamos um novo espaço na memória
+    // então vamos criar uma nova lista de comentário sem a que queremos remover.
+    const commenstsWithoutDeleteOne = comments.filter(comment => {
+      // manter na lista apenas os comentario diferente do commentToDelete
+      return comment !== commentToDelete;
+    })
+    setComments(commenstsWithoutDeleteOne);
   }
   return (
   <article className={styles.post}>
