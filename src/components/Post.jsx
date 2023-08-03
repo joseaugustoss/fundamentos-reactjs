@@ -19,9 +19,7 @@ export function Post({ author, publishedAt, content }) {
     locale: ptBr,
     addSuffix: true,
   });
-  function deleteComment(comment) {
-    console.log(comment);
-  }
+
   function handleNewCommentChange() {
     event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
@@ -87,7 +85,7 @@ export function Post({ author, publishedAt, content }) {
           required
         />
         <footer>
-          <button type="submit" disabled={isNewCommentEmpty}>
+          <button type="submit"  disabled={isNewCommentEmpty}>
             Publicar
           </button>
         </footer>
